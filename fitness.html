@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness & Wellness</title>
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('loggedIn')) {
+            // If not logged in, redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
+    <style>
+         body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f4f8; /* Light gray background color for the whole page */
+            color: #333;
+        }
+
+        header {
+            background: #006A4E;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        h1{
+            color: #fff
+        }
+         h2 {
+            color: #2e8b57;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .videos iframe {
+            width: 100%;
+            height: 315px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .videos iframe {
+                width: 560px;
+                height: 315px;
+            }
+        }
+
+        .tracker, .calculator, .quiz, .bmi {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="number"], input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e6843;
+        }
+    </style>
+    <script>
+        // Simple Fitness Quiz Logic
+        function showGoal() {
+            const goal = document.querySelector('input[name="goal"]:checked').value;
+            alert(`Your selected goal is: ${goal}.`);
+        }
+
+        // Simple Calorie Calculator
+        function calculateCalories() {
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const age = document.getElementById('age').value;
+            const activityLevel = document.getElementById('activity').value;
+
+            if (weight && height && age) {
+                let calories;
+                // Basic calorie calculation (Mifflin-St Jeor Equation)
+                if (activityLevel === 'low') {
+                    calories = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+                } else if (activityLevel === 'moderate') {
+                    calories = ((10 * weight) + (6.25 * height) - (5 * age) + 5) * 1.55;
+                } else {
+                    calories = ((10 * weight) + (6.25 * height) - (5 * age) + 5) * 1.725;
+                }
+
+                alert(`You need approximately ${calories.toFixed(2)} calories per day to maintain your current weight.`);
+            } else {
+                alert('Please fill in all the fields.');
+            }
+        }
+
+        // BMI Calculator
+        function calculateBMI() {
+            const weight = document.getElementById('bmi-weight').value;
+            const height = document.getElementById('bmi-height').value;
+
+            if (weight && height) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                let bmiCategory = '';
+
+                if (bmi < 18.5) {
+                    bmiCategory = 'Underweight';
+                } else if (bmi >= 18.5 && bmi < 24.9) {
+                    bmiCategory = 'Normal weight';
+                } else if (bmi >= 25 && bmi < 29.9) {
+                    bmiCategory = 'Overweight';
+                } else {
+                    bmiCategory = 'Obese';
+                }
+
+                alert(`Your BMI is ${bmi.toFixed(2)}, which is considered ${bmiCategory}.`);
+            } else {
+                alert('Please fill in both weight and height.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Fitness hub</h1>
+    </header>
+    
+
+    <div class="section">
+        <h2>Yoga Exercises</h2>
+        <p>Engage in these yoga exercises to improve your flexibility, strength, and mental focus.</p>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/v7AYKMP6rOE" title="Yoga For Complete Beginners - 20 Minute Home Yoga Workout!"></iframe>
+            <iframe src="https://www.youtube.com/embed/sTANio_2E0Q" title="20 min Full Body Yoga - Flexibility & Strength - Complete Practice"></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Surya Namaskar (Sun Salutation)</h2>
+        <p>Practice Surya Namaskar to start your day with energy and positivity.</p>
+        <div class="videos">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_2GgRQJ9IbU?si=zPBjnD129wxMNZC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Easy Home Workouts</h2>
+        <p>These easy home workouts are perfect for staying fit without any equipment.</p>
+        <div class="videos">
+            <iframe src="https://www.youtube.com/embed/2MoGxae-zyo" title="30-Minute No-Equipment Full-Body Toning Workout"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/cbKkB3POqaY?si=xBxy6IhqXhWhWCwi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section tracker">
+        <h2>Fitness Tracker</h2>
+        <p>Track your daily fitness activities like steps, workouts, and sleep to monitor your progress.</p>
+        <label for="steps">Steps Taken Today:</label>
+        <input type="number" id="steps" placeholder="Enter your steps">
+        
+        <label for="workout">Workout Time (in minutes):</label>
+        <input type="number" id="workout" placeholder="Enter workout time">
+        
+        <label for="sleep">Sleep Time (in hours):</label>
+        <input type="number" id="sleep" placeholder="Enter your sleep time">
+        
+        <button onclick="alert('Data Saved!')">Save Data</button>
+    </div>
+
+    <div class="section calculator">
+        <h2>Calorie Calculator</h2>
+        <p>Calculate your daily calorie needs based on your weight, height, age, and activity level.</p>
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+        
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" placeholder="Enter your height">
+        
+        <label for="age">Age (in years):</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        
+        <label for="activity">Activity Level:</label>
+        <select id="activity">
+            <option value="low">Low (Little to no exercise)</option>
+            <option value="moderate">Moderate (3-4 days of exercise)</option>
+            <option value="high">High (Daily intense exercise)</option>
+        </select>
+        
+        <button onclick="calculateCalories()">Calculate Calories</button>
+    </div>
+
+    <div class="section bmi">
+        <h2>BMI Calculator</h2>
+        <p>Calculate your Body Mass Index (BMI) to understand your weight category.</p>
+        <label for="bmi-weight">Weight (in kg):</label>
+        <input type="number" id="bmi-weight" placeholder="Enter your weight">
+        
+        <label for="bmi-height">Height (in cm):</label>
+        <input type="number" id="bmi-height" placeholder="Enter your height">
+        
+        <button onclick="calculateBMI()">Calculate BMI</button>
+    </div>
+
+    <div class="section quiz">
+        <h2>Fitness Goal Quiz</h2>
+        <p>Take this quiz to find out what your fitness goal should be.</p>
+        <label><input type="radio" name="goal" value="Build Muscle"> Build Muscle</label>
+        <label><input type="radio" name="goal" value="Lose Weight"> Lose Weight</label>
+        <label><input type="radio" name="goal" value="Gain Confidence"> Gain Confidence</

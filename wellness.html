@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Guide</title>
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('loggedIn')) {
+            // If not logged in, redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            background: url('https://cdn.pixabay.com/photo/2016/11/18/15/05/beach-1835213_1280.jpg') no-repeat center center fixed;
+            background-size: cover; /* Make the background image cover the entire page */
+        }
+
+        header {
+            background: rgba(0, 106, 78, 0.8); /* Darker background with transparency */
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #fff;
+        }
+
+        h1{
+            color: #fff;
+        }
+        h2{
+            color: #333;
+        }
+        .section {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with more opacity */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2; /* Ensure content is above background */
+            position: relative;
+        }
+
+        .videos iframe {
+            width: 100%;
+            height: 315px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .videos iframe {
+                width: 560px;
+                height: 315px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-position: center;
+            }
+
+            .section {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wellness Guide</h1>
+    </header>
+
+    <div class="section">
+        <h2>Practical Methods for Wellness</h2>
+        <ul>
+            <li><strong>Regular Exercise:</strong> Aim for at least 30 minutes of physical activity daily. This can include walking, running, yoga, or strength training.</li>
+            <li><strong>Healthy Eating:</strong> Focus on a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. Limit processed foods and sugar.</li>
+            <li><strong>Mindfulness and Meditation:</strong> Practice mindfulness or meditation daily to reduce stress and increase focus.</li>
+            <li><strong>Quality Sleep:</strong> Ensure you get 7-9 hours of sleep each night. A consistent sleep schedule can greatly improve overall health.</li>
+            <li><strong>Stay Hydrated:</strong> Drink plenty of water throughout the day to keep your body and mind functioning optimally.</li>
+            <li><strong>Social Connections:</strong> Maintain strong social ties. Spend time with loved ones, and engage in meaningful conversations.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>Importance of Wellness</h2>
+        <p>Wellness is crucial for maintaining a high quality of life. It encompasses physical, mental, and emotional health. By prioritizing wellness, you can enhance your energy levels, reduce the risk of chronic diseases, improve your mental clarity, and increase overall happiness. Taking a proactive approach to wellness can help you lead a balanced and fulfilling life.</p>
+    </div>
+
+    <div class="section videos">
+        <h2>Meditation Guide</h2>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/U9YKY7fdwyg?si=baqqIjMZ_51mwGun" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section videos">
+        <h2>Wellness Talks by Great Public Speakers</h2>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/y6YGZfcAegw?si=rk5ziRWGWe87qwDf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/F2hc2FLOdhI?si=FmHFYtxZTUsOewEb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/IeblJdB2-Vo?si=FUixLMp4345Pg40h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>

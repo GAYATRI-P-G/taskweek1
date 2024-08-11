@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <title>Sign Up</title>
+    <style>
+          /*Body styling*/
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background: linear-gradient(to right, #00ff77, #011c06);
+        }
+          /*Various class styling*/
+        .signup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 350px;
+            margin: 0 20px;
+        }
+
+        .signup-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #0072ff;
+        }
+
+        .signup-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0072ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .signup-container button:hover {
+            background-color: #005bb5;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #0072ff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+          /*Responsive styles*/
+
+        @media (min-width: 600px) {
+            .signup-container {
+                width: 80%;
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .signup-container {
+                width: 60%;
+                max-width: 450px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .signup-container {
+                width: 40%;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <h1>Sign Up</h1>
+    <form id="signupForm" novalidate>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username">
+        <div class="error-message" id="username-error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div class="error-message" id="email-error"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <div class="error-message" id="password-error"></div>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" placeholder="Confirm your password">
+        <div class="error-message" id="confirm-password-error"></div>
+
+        <button type="submit">Sign Up</button>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirm-password').value.trim();
+        
+        const usernameError = document.getElementById('username-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+
+        // Clear previous error messages
+        usernameError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
+        confirmPasswordError.textContent = '';
+
+        let valid = true;
+
+        // Validate username
+        if (username === '') {
+            usernameError.textContent = 'Username is required.';
+            valid = false;
+        } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            usernameError.textContent = 'Username must be alphanumeric.';
+            valid = false;
+        }
+
+        // Validate email
+        if (email === '') {
+            emailError.textContent = 'Email is required.';
+            valid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            emailError.textContent = 'Please enter a valid email address.';
+            valid = false;
+        }
+
+        // Validate password
+        if (password === '') {
+            passwordError.textContent = 'Password is required.';
+            valid = false;
+        } else if (password.length < 6) {
+            passwordError.textContent = 'Password must be at least 6 characters long.';
+            valid = false;
+        }
+
+        // Validate confirm password
+        if (confirmPassword === '') {
+            confirmPasswordError.textContent = 'Please confirm your password.';
+            valid = false;
+        } else if (confirmPassword !== password) {
+            confirmPasswordError.textContent = 'Passwords do not match.';
+            valid = false;
+        }
+
+        // Proceed if all fields are valid
+        if (valid) {
+            // Assume signup is successful
+            alert('Sign up successful!');
+            window.location.href = 'login.html'; // Redirect to login page after signup
+        }
+    });
+</script>
+
+</body>
+</html>

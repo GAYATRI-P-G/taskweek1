@@ -2,34 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>Nutrition</title>
 
-    <script>
-        // Check if the user is logged in
-        if (!localStorage.getItem('loggedIn')) {
-            // If not logged in, redirect to login page
-            window.location.href = 'login.html';
-        }
-    </script>
     <style>
+        /* Basic styles for the whole page */
         body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f0f4f8; /* Light gray background color for the whole page */
+            background-color: #f0f4f8;
             color: #333;
         }
 
+        /* Styling for the header  */
         header {
             background: #006A4E;
             color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
-       
 
+        /* Navigation bar styles */
         nav ul {
             display: flex;
             justify-content: center;
@@ -54,15 +49,17 @@
             background: #555;
         }
 
+        /* Main content area displayed as a grid */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: 1fr; 
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
-            margin: 20px auto; /* Center the grid container */
+            margin: 20px auto; 
         }
 
+        /* Individual grid item styles */
         .grid-item {
             background: #fff;
             padding: 20px;
@@ -73,11 +70,13 @@
             overflow: hidden;
         }
 
+        /* effects when a grid item is hovered over */
         .grid-item:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        /* Styling for grid item titles */
         .grid-item h2 {
             margin-top: 0;
             font-size: 1.5rem;
@@ -89,6 +88,7 @@
             color: #666;
         }
 
+        /* Hidden content sections to be displayed on click */
         .content {
             display: none;
             background: #fff;
@@ -98,21 +98,43 @@
             margin-top: 20px;
         }
 
+        /* Show content when active */
         .content.active {
             display: block;
         }
 
+        /* Styling for content titles */
         .content h2 {
             margin-top: 0;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); 
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); 
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header section -->
     <header>
         <h1>Nutrition Information</h1>
     </header>
 
-  
+    <!-- Grid container with items representing different age groups -->
     <div class="grid-container">
         <div class="grid-item" data-target="under-18">
             <h2>Nutrition for Under 18</h2>
@@ -144,50 +166,40 @@
         </div>
     </div>
 
+    <!-- Hidden content sections, displayed when corresponding grid items are clicked -->
     <div id="under-18" class="content">
         <h2>Nutrition for Under 18</h2>
-        <p>Detailed diet information for individuals under 18...</p>
+        <p><strong>Nutrition:</strong> Focus on a diet rich in essential nutrients to support growth and development. Include plenty of fruits, vegetables, whole grains, lean proteins, and dairy products. Ensure adequate intake of calcium and vitamin D for bone health. Limit sugary snacks and processed foods.</p>
+        <p><strong>Physical Activity:</strong> Encourage at least 60 minutes of physical activity per day, including activities that enhance strength, flexibility, and cardiovascular health.</p>
+        <p><strong>Sleep:</strong> Aim for 9-11 hours of sleep each night to support overall health and development.</p>
     </div>
+    
     <div id="18-24" class="content">
         <h2>Nutrition for 18-24</h2>
-        <p>Detailed diet information for individuals aged 18-24...</p>
+        <p><strong>Nutrition:</strong> Focus on maintaining a balanced diet that supports a healthy metabolism and energy levels. Include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. Pay attention to iron and calcium intake, especially for young women.</p>
+        <p><strong>Physical Activity:</strong> Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity per week, along with muscle-strengthening activities.</p>
+        <p><strong>Sleep:</strong> Aim for 7-9 hours of sleep each night. Maintain good sleep hygiene and manage stress effectively.</p>
     </div>
+    
     <div id="25-34" class="content">
         <h2>Nutrition for 25-34</h2>
-        <p>Detailed diet information for individuals aged 25-34...</p>
+        <p><strong>Nutrition:</strong> Focus on a diet that supports overall health and prevents chronic diseases. Include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. Monitor portion sizes and limit intake of refined sugars and saturated fats.</p>
+        <p><strong>Physical Activity:</strong> Continue regular physical activity with a mix of aerobic and strength training exercises. Aim for 150 minutes of moderate aerobic activity per week.</p>
+        <p><strong>Sleep:</strong> Aim for 7-9 hours of quality sleep each night. Address any sleep disturbances and maintain a regular sleep schedule.</p>
     </div>
+    
     <div id="35-44" class="content">
         <h2>Nutrition for 35-44</h2>
-        <p>Detailed diet information for individuals aged 35-44...</p>
+        <p><strong>Nutrition:</strong> Emphasize a balanced diet with a focus on heart health and metabolism. Include plenty of fruits, vegetables, whole grains, lean proteins, and healthy fats. Pay attention to fiber intake and limit sodium and sugar.</p>
+        <p><strong>Physical Activity:</strong> Engage in regular physical activity, including cardiovascular exercises and strength training. Aim for at least 150 minutes of moderate aerobic activity per week.</p>
+        <p><strong>Sleep:</strong> Ensure 7-9 hours of sleep per night. Address stress and sleep issues proactively to maintain overall health.</p>
     </div>
+    
     <div id="45-54" class="content">
         <h2>Nutrition for 45-54</h2>
-        <p>Detailed diet information for individuals aged 45-54...</p>
+        <p><strong>Nutrition:</strong> Focus on maintaining a healthy weight and preventing chronic diseases. Include a diet rich in fruits, vegetables, whole grains, lean proteins, and low-fat dairy. Monitor cholesterol and blood pressure levels, and limit intake of processed foods and unhealthy fats.</p>
+        <p><strong>Physical Activity:</strong> Aim for a mix of aerobic and strength training exercises. Incorporate activities that improve flexibility and balance.</p>
+        <p><strong>Sleep:</strong> Aim for 7-9 hours of sleep each night. Address any sleep disorders and maintain a consistent sleep routine.</p>
     </div>
-    <div id="55-64" class="content">
-        <h2>Nutrition for 55-64</h2>
-        <p>Detailed diet information for individuals aged 55-64...</p>
-    </div>
-    <div id="65-over" class="content">
-        <h2>Nutrition for 65 and Over</h2>
-        <p>Detailed diet information for individuals aged 65 and over...</p>
-    </div>
-
-    <script>
-        document.querySelectorAll('.grid-item').forEach(item => {
-            item.addEventListener('click', () => {
-                // Hide all content sections
-                document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
-
-                // Get the target content ID from the clicked item
-                const targetId = item.getAttribute('data-target');
-
-                // Show the target content section
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
-
-
+    
+   

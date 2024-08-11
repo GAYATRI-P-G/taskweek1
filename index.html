@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>BFIT</title>
     <style>
-    
+        
         * {
             margin: 0;
             padding: 0;
-            box-sizing:border-box;
+            box-sizing: border-box;
         }
 
+        /*  body styling */
         body {
-            font-family: "Comic Sans MS", cursive, sans-serif; ;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             line-height: 1.6;
         }
 
+        /* Styling for the header section */
         header {
             background: #006A4E;
             color: #fff;
@@ -24,11 +26,16 @@
             text-align: center;
         }
 
+        /* Navbar styling */
+        nav {
+            background: #333;
+            position: relative;
+        }
+
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            background: #333;
         }
 
         nav ul li {
@@ -42,74 +49,57 @@
             display: block;
         }
 
+        /* Change background color on hover */
         nav ul li a:hover {
             background: #555;
         }
 
+        /* Navbar icon styling */
+        .nav-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        /* Hero section styling */
         .hero {
-            background: url('https://cdn.pixabay.com/photo/2023/11/14/22/46/yoga-8388780_1280.jpg') no-repeat center center/cover;
-            height: 100vh;
+            background: url('https://cdn.pixabay.com/photo/2023/03/31/16/26/maternity-7890356_1280.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2f8b55;
-            text-align:justify; 
+            color: #fff;
+            text-align: center;
+            padding: 20px;
         }
-        
 
         .hero h1 {
-            text-decoration:  none;
             font-size: 3rem;
             margin-bottom: 1rem;
-             
+            padding-top: 100px; /* Add padding to move text down */
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
-        .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards; /* Fade-in animation */
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Start from above */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* End at the original position */
-    }
-}
-    
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.age-group {
-    position: absolute; /* Position inside .hero */
-    top: 200px; /* Adjust to move the box further down or up */
-    right: 20px; /* Adjust to move the box further left or right */
-    font-size: 1rem;
-    color: #222fef;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px 40px; /* Padding adjusted to create an oval shape */
-    border-radius: 50px; /* Oval shape */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    z-index: 1000; /* Ensures it appears above other elements */
-}
-
-.age-group select {
-    font-size: 0.9rem;
-    margin-top: 10px;
-    border-radius: 20px;
-    padding: 5px 10px;
-    width: 100%;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-    
-      
-
-
+        /* Section styles */
         .sections {
             display: flex;
             flex-wrap: wrap;
@@ -117,15 +107,10 @@
             padding: 2rem;
         }
 
-        /* .section {
-            flex: 1 1 calc(25% - 2rem);
-            background: #f4f4f4d7;
-            margin: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        } */
+        .section {
+            flex: 1 1 30%;
+            margin: 20px;
+        }
 
         .section h2 {
             margin-bottom: 1rem;
@@ -136,10 +121,8 @@
             font-size: 1rem;
             margin-bottom: 1rem;
         }
-        
 
-        
-
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 1rem;
@@ -148,73 +131,95 @@
             margin-top: 2rem;
         }
 
-        /* Responsive Design */
-        
-           
-    @media (max-width: 768px) {
-    .sections {
-        flex-direction: column;
-        align-items: center;
-    }
+        /* Responsive styles for tablets and smaller screens */
+        @media (max-width: 768px) {
+            .nav-icon {
+                display: block;
+            }
 
-    .section {
-        flex: 1 1 100%;
-        margin-bottom: 1rem;
-    }
-}
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                z-index: 1000; /* Ensure navbar is on top of other elements */
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .sections {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .section {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            .hero {
+                min-height: 60vh; 
+            }
+        }
 
         
+        @media (max-width: 600px) {
+            .hero {
+                height: 50vh;
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                padding-top: 10px; 
+            }
+
+            .sections {
+                padding: 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.25rem;
+            }
+
+            .section p {
+                font-size: 0.875rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>BFIT</h1>
-        <p>Your Lifestyle Partner!!!</p>
+        <p>Your Lifestyle Partner</p>
     </header>
 
     <nav>
-        <ul>
+        <span class="nav-icon" id="navIcon">&#9776;</span>
+        <ul id="navLinks">
             <li><a href="#">Home</a></li>
             <li><a href="nutrition.html">Nutrition</a></li>
             <li><a href="wellness.html">Wellness</a></li>
             <li><a href="fitness.html">Fitness</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li><a href="login.html">Login/Signup</a></li>
-            
         </ul>
     </nav>
-    <div>
+
     <div class="hero">
         <h1>Welcome to Your Journey to Health and Wellness</h1>
-        <div class="age-group">
-            <label for="age-group-select">Select Your Age Group:</label>
-            <select id="age-group-select" name="age-group" onchange="navigateToNutrition()">
-                <option value="">Select an option</option> <!-- Add a default empty option -->
-            
-                <option value="under-18">Under 18</option>
-                <option value="18-24">18-24</option>
-                <option value="25-34">25-34</option>
-                <option value="35-44">35-44</option>
-                <option value="45-54">45-54</option>
-                <option value="55-64">55-64</option>
-                <option value="65-over">65 and Over</option>
-            </select>
-        </div>
-        <script>
-            function navigateToNutrition() {
-                var ageGroup = document.getElementById('age-group-select').value;
-                if (ageGroup) {
-                    window.location.href = 'nutrition.html#' + ageGroup;
-                }
-            }
-        </script>
     </div>
 
-    
-    </div>
- 
     <div class="sections">
-        
         <div class="section">
             <h2>Nutrition</h2>
             <p>Get expert advice on balanced diets and nutritional needs.</p>
@@ -231,10 +236,21 @@
             <a href="fitness.html">Learn More</a>
         </div>
     </div>
-    
-   
+
     <footer>
-        <p>&copy; 2024 Healthy Living | Follow us on <a href="#" style="color: #3b5998;">Facebook</a>, <a href="#" style="color: #E1306C;">Instagram</a>, <a href="#" style="color: #00acee;">Twitter</a></p>
+        <p>&copy; 2024 Healthy Living | Follow us on 
+            <a href="https://www.facebook.com/" style="color: #3b5998;">Facebook</a>, 
+            <a href="https://www.instagram.com/" style="color: #E1306C;">Instagram</a>, 
+            <a href="https://twitter.com/?lang=en" style="color: #00acee;">Twitter</a>
+        </p>
     </footer>
+
+    <script>
+        // Toggle the display of the navigation links on clicking the nav icon
+        document.getElementById('navIcon').addEventListener('click', function() {
+            var navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

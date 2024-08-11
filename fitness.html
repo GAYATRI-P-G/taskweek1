@@ -2,112 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness & Wellness</title>
-    <script>
-        // Check if the user is logged in
-        if (!localStorage.getItem('loggedIn')) {
-            // If not logged in, redirect to login page
-            window.location.href = 'login.html';
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Fitness</title>
+    
     <style>
-         body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
+        /* Basic styling for body */
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f0f4f8; /* Light gray background color for the whole page */
+            background-color: #f0f4f8; 
             color: #333;
         }
 
+        /* Header styling  */
         header {
-            background: #006A4E;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        h1{
-            color: #fff
-        }
-         h2 {
-            color: #2e8b57;
-            text-align: center;
+            background: #006A4E; 
+            color: #fff; 
+            padding: 1rem 0; 
+            text-align: center; 
         }
 
+        
+        h1 {
+            color: #fff; 
+        }
+
+        /* Styling for section titles (h2) */
         h2 {
-            margin-top: 30px;
+            color: #2e8b57; 
+            text-align: center; 
+            margin-top: 30px; 
         }
 
+        /* Basic layout for sections with a white background, padding, and rounded corners */
         .section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px; 
+            padding: 20px; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
         }
 
+        /* Responsive video embedding to adjust size based on screen width */
         .videos iframe {
-            width: 100%;
-            height: 315px;
-            margin-top: 15px;
+            width: 100%; 
+            height: 315px; 
+            margin-top: 15px; 
         }
 
+        
         @media (min-width: 768px) {
             .videos iframe {
-                width: 560px;
-                height: 315px;
+                width: 560px; 
+                height: 315px; 
             }
         }
 
-        .tracker, .calculator, .quiz, .bmi {
-            margin: 20px 0;
+        
+        .tracker, .calculator, .bmi {
+            margin: 20px 0; 
         }
 
+        /* Basic styling for form labels */
         label {
-            display: block;
-            margin-top: 10px;
+            display: block; 
+            margin-top: 10px; 
         }
 
+        /* Input field styling for consistent appearance */
         input[type="number"], input[type="text"], select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+            width: 100%; 
+            padding: 8px; 
+            margin-top: 5px; 
+            margin-bottom: 20px; 
+            border-radius: 4px; 
+            border: 1px solid #ccc; 
         }
 
+        /* Styling for buttons to make them stand out */
         button {
-            padding: 10px 20px;
-            background-color: #2e8b57;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            padding: 10px 20px; 
+            background-color: #2e8b57; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
         }
 
+        /* Change button color when hovered over */
         button:hover {
-            background-color: #1e6843;
+            background-color: #1e6843; 
         }
     </style>
+
     <script>
-        // Simple Fitness Quiz Logic
+        // Function to show the user's selected fitness goal in an alert
         function showGoal() {
             const goal = document.querySelector('input[name="goal"]:checked').value;
             alert(`Your selected goal is: ${goal}.`);
         }
 
-        // Simple Calorie Calculator
+        // Basic calorie calculator function
         function calculateCalories() {
+            // Get user inputs from the form
             const weight = document.getElementById('weight').value;
             const height = document.getElementById('height').value;
             const age = document.getElementById('age').value;
             const activityLevel = document.getElementById('activity').value;
 
+            // Check if all fields are filled
             if (weight && height && age) {
                 let calories;
-                // Basic calorie calculation (Mifflin-St Jeor Equation)
+
+                // Calculate calories based on activity level
                 if (activityLevel === 'low') {
                     calories = (10 * weight) + (6.25 * height) - (5 * age) + 5;
                 } else if (activityLevel === 'moderate') {
@@ -116,22 +125,26 @@
                     calories = ((10 * weight) + (6.25 * height) - (5 * age) + 5) * 1.725;
                 }
 
+                // Show the calculated calories in an alert
                 alert(`You need approximately ${calories.toFixed(2)} calories per day to maintain your current weight.`);
             } else {
                 alert('Please fill in all the fields.');
             }
         }
 
-        // BMI Calculator
+        // Simple BMI calculator function
         function calculateBMI() {
+            // Get user inputs for weight and height
             const weight = document.getElementById('bmi-weight').value;
             const height = document.getElementById('bmi-height').value;
 
+            // Check if both fields are filled
             if (weight && height) {
-                const heightInMeters = height / 100;
-                const bmi = weight / (heightInMeters * heightInMeters);
-                let bmiCategory = '';
+                const heightInMeters = height / 100; // Convert height to meters
+                const bmi = weight / (heightInMeters * heightInMeters); // Calculate BMI
 
+                // Determine BMI category based on the result
+                let bmiCategory = '';
                 if (bmi < 18.5) {
                     bmiCategory = 'Underweight';
                 } else if (bmi >= 18.5 && bmi < 24.9) {
@@ -142,6 +155,7 @@
                     bmiCategory = 'Obese';
                 }
 
+                // Show the BMI result and category in an alert
                 alert(`Your BMI is ${bmi.toFixed(2)}, which is considered ${bmiCategory}.`);
             } else {
                 alert('Please fill in both weight and height.');
@@ -150,11 +164,12 @@
     </script>
 </head>
 <body>
+    <!-- Header section -->
     <header>
-        <h1>Fitness hub</h1>
+        <h1>Fitness Hub</h1>
     </header>
-    
 
+    <!-- Yoga exercises section with embedded YouTube videos -->
     <div class="section">
         <h2>Yoga Exercises</h2>
         <p>Engage in these yoga exercises to improve your flexibility, strength, and mental focus.</p>
@@ -164,6 +179,7 @@
         </div>
     </div>
 
+    <!-- Surya Namaskar section with video -->
     <div class="section">
         <h2>Surya Namaskar (Sun Salutation)</h2>
         <p>Practice Surya Namaskar to start your day with energy and positivity.</p>
@@ -172,6 +188,7 @@
         </div>
     </div>
 
+    <!-- Easy home workouts section with embedded YouTube videos -->
     <div class="section">
         <h2>Easy Home Workouts</h2>
         <p>These easy home workouts are perfect for staying fit without any equipment.</p>
@@ -181,6 +198,7 @@
         </div>
     </div>
 
+    <!-- Fitness tracker section with input fields to track daily activities -->
     <div class="section tracker">
         <h2>Fitness Tracker</h2>
         <p>Track your daily fitness activities like steps, workouts, and sleep to monitor your progress.</p>
@@ -193,9 +211,10 @@
         <label for="sleep">Sleep Time (in hours):</label>
         <input type="number" id="sleep" placeholder="Enter your sleep time">
         
-        <button onclick="alert('Data Saved!')">Save Data</button>
+        <button onclick="alert('Data Saved!')">Save Data</button> <!-- Save button to save fitness data -->
     </div>
 
+    <!-- Calorie calculator section with input fields for weight, height, age, and activity level -->
     <div class="section calculator">
         <h2>Calorie Calculator</h2>
         <p>Calculate your daily calorie needs based on your weight, height, age, and activity level.</p>
@@ -215,9 +234,10 @@
             <option value="high">High (Daily intense exercise)</option>
         </select>
         
-        <button onclick="calculateCalories()">Calculate Calories</button>
+        <button onclick="calculateCalories()">Calculate Calories</button> <!-- Button to calculate daily calorie needs -->
     </div>
 
+    <!-- BMI calculator section with input fields for weight and height -->
     <div class="section bmi">
         <h2>BMI Calculator</h2>
         <p>Calculate your Body Mass Index (BMI) to understand your weight category.</p>
@@ -227,12 +247,7 @@
         <label for="bmi-height">Height (in cm):</label>
         <input type="number" id="bmi-height" placeholder="Enter your height">
         
-        <button onclick="calculateBMI()">Calculate BMI</button>
+        <button onclick="calculateBMI()">Calculate BMI</button> <!-- Button to calculate BMI and show the result -->
     </div>
-
-    <div class="section quiz">
-        <h2>Fitness Goal Quiz</h2>
-        <p>Take this quiz to find out what your fitness goal should be.</p>
-        <label><input type="radio" name="goal" value="Build Muscle"> Build Muscle</label>
-        <label><input type="radio" name="goal" value="Lose Weight"> Lose Weight</label>
-        <label><input type="radio" name="goal" value="Gain Confidence"> Gain Confidence</
+</body>
+</html>

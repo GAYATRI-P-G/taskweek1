@@ -2,98 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
     <title>Wellness Guide</title>
-    <script>
-        // Check if the user is logged in
-        if (!localStorage.getItem('loggedIn')) {
-            // If not logged in, redirect to login page
-            window.location.href = 'login.html';
-        }
-    </script>
+    
     <style>
+        /* Basic styling for the body */
         body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             color: #333;
             background: url('https://cdn.pixabay.com/photo/2016/11/18/15/05/beach-1835213_1280.jpg') no-repeat center center fixed;
-            background-size: cover; /* Make the background image cover the entire page */
+            background-size: cover; /* Cover the whole screen */
         }
 
+        /* Header styling */
         header {
-            background: rgba(0, 106, 78, 0.8); /* Darker background with transparency */
+            background: rgba(0, 106, 78, 0.8); /* Semi-transparent dark green */
             color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
 
+       
         header h1 {
             color: #fff;
         }
 
-        h1{
+        /* Section headings and content styling */
+        h1 {
             color: #fff;
         }
-        h2{
-            color: #333;
+        h2 {
+            color: #333; 
         }
+
+        /* Styling for sections */
         .section {
             margin: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* White background with more opacity */
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Ensure content is above background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            z-index: 2; 
             position: relative;
         }
 
+        /* Video styling */
         .videos iframe {
-            width: 100%;
+            width: 100%; 
             height: 315px;
             margin-top: 15px;
         }
 
+        /* Responsive video styling */
         @media (min-width: 768px) {
             .videos iframe {
-                width: 560px;
-                height: 315px;
+                width: 560px; 
             }
         }
 
+        
         @media (max-width: 768px) {
             body {
                 background-position: center;
             }
 
             .section {
-                margin: 10px;
+                margin: 10px; 
             }
         }
     </style>
 </head>
 <body>
+    <!-- header -->
     <header>
         <h1>Wellness Guide</h1>
     </header>
 
+    <!-- Practical wellness tips -->
     <div class="section">
         <h2>Practical Methods for Wellness</h2>
         <ul>
-            <li><strong>Regular Exercise:</strong> Aim for at least 30 minutes of physical activity daily. This can include walking, running, yoga, or strength training.</li>
-            <li><strong>Healthy Eating:</strong> Focus on a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. Limit processed foods and sugar.</li>
-            <li><strong>Mindfulness and Meditation:</strong> Practice mindfulness or meditation daily to reduce stress and increase focus.</li>
-            <li><strong>Quality Sleep:</strong> Ensure you get 7-9 hours of sleep each night. A consistent sleep schedule can greatly improve overall health.</li>
-            <li><strong>Stay Hydrated:</strong> Drink plenty of water throughout the day to keep your body and mind functioning optimally.</li>
-            <li><strong>Social Connections:</strong> Maintain strong social ties. Spend time with loved ones, and engage in meaningful conversations.</li>
+            <li><strong>Regular Exercise:</strong> Aim for at least 30 minutes of physical activity daily.</li>
+            <li><strong>Healthy Eating:</strong> Eat a balanced diet with fruits, vegetables, and lean proteins.</li>
+            <li><strong>Mindfulness and Meditation:</strong> Practice daily to reduce stress and improve focus.</li>
+            <li><strong>Quality Sleep:</strong> Get 7-9 hours of sleep each night for better health.</li>
+            <li><strong>Stay Hydrated:</strong> Drink plenty of water throughout the day.</li>
+            <li><strong>Social Connections:</strong> Maintain strong relationships and engage in meaningful conversations.</li>
         </ul>
     </div>
+
+    <!-- Importance of wellness -->
     <div class="section">
         <h2>Importance of Wellness</h2>
-        <p>Wellness is crucial for maintaining a high quality of life. It encompasses physical, mental, and emotional health. By prioritizing wellness, you can enhance your energy levels, reduce the risk of chronic diseases, improve your mental clarity, and increase overall happiness. Taking a proactive approach to wellness can help you lead a balanced and fulfilling life.</p>
+        <p>Wellness enhances quality of life, energy levels, and reduces disease risk. It improves mental clarity and happiness. A proactive approach to wellness leads to a balanced life.</p>
     </div>
 
+    <!-- Meditation guide videos -->
     <div class="section videos">
         <h2>Meditation Guide</h2>
         <div>
@@ -101,6 +109,7 @@
         </div>
     </div>
 
+    <!-- Wellness talks videos -->
     <div class="section videos">
         <h2>Wellness Talks by Great Public Speakers</h2>
         <div>

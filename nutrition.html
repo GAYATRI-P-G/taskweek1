@@ -202,4 +202,27 @@
         <p><strong>Sleep:</strong> Aim for 7-9 hours of sleep each night. Address any sleep disorders and maintain a consistent sleep routine.</p>
     </div>
     
-   
+    <script>
+        // Select all grid items
+        const gridItems = document.querySelectorAll('.grid-item');
+    
+        // Add a click event listener to each grid item
+        gridItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Get the target content section's ID
+                const targetId = this.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+    
+                // Hide all content sections first
+                const allContent = document.querySelectorAll('.content');
+                allContent.forEach(content => {
+                    content.classList.remove('active');
+                });
+    
+                // Show the clicked content section
+                targetContent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>   
